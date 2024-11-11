@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacción de medicamentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="popup-message" class="popup hidden">
+        <div class="popup-content">
+            <h2>Bienvenido!</h2>
+            <p>Para una mejor experiencia, pon el navegador en pantalla completa!</p>
+            <p>Se sugiere leer el manual de usuario para aprender como utilizar la pagina, en el boton en el centro arriba.</p>
+            <button id="close-popup">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="popup-manual" class="popup hidden">
+        <div class="popup-content">
+            <h2>Manual de Usuario</h2>
+            <section id="user-manual">
+                <ol>
+                    <li>
+                        <strong>Despliegue de Opciones en la Parte Superior:</strong> En la parte superior de la interfaz, se encuentra un menú desplegable con opciones para elegir el tipo de interacciones a consultar. Puedes seleccionar entre Interacciones Mayores o Interacciones Moderadas. Este paso inicial define el tipo de interacción que deseas analizar.
+                    </li>
+                    <li>
+                        <strong>Selección de Medicamento:</strong> Una vez seleccionado el tipo de interacción (mayor o moderada), dirígete a la parte inferior de la pantalla. Allí, encontrarás un nuevo menú desplegable donde podrás elegir entre una lista de medicamentos que pueden generar el tipo de interacción seleccionado. Selecciona el medicamento que desees consultar para continuar.
+                    </li>
+                    <li>
+                        <strong>Confirmación de Selección:</strong> Tras haber elegido ambos criterios (tipo de interacción y medicamento), localiza el botón con el símbolo <strong>=</strong> en el lado derecho de la pantalla. Haz clic en este botón para confirmar tu selección y generar los resultados de la interacción.
+                    </li>
+                    <li>
+                        <strong>Visualización de Resultados:</strong> Los resultados de la interacción se mostrarán en la parte inferior de la pantalla. Aquí encontrarás información detallada sobre:
+                        <ul>
+                            <li><strong>Tipo de Interacción:</strong> Se especifica si es una interacción mayor o moderada.</li>
+                            <li><strong>Riesgos:</strong> Describe los posibles riesgos asociados a la combinación de los medicamentos seleccionados.</li>
+                            <li><strong>Precauciones:</strong> Proporciona recomendaciones para minimizar los riesgos de la interacción.</li>
+                            <li><strong>Síntomas de Advertencia:</strong> Enumera los síntomas a los que el paciente debe estar atento.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Sistema de Selección Aplicable para Ambos Tipos de Interacciones:</strong> Este flujo de selección y consulta se aplica tanto para las interacciones mayores como para las interacciones moderadas, permitiéndote obtener información específica y relevante según el tipo de interacción deseada.
+                    </li>
+                </ol>
+            </section>
+            
+            
+           <b><strong>(Click afuera de esta ventanilla para cerrar)</strong></b>
+        </div>
+    </div>
+    
+    <div class="site-logo">
+        <img src="./Capture.PNG" alt="logo">
+    </div>
+    <section id="interaction-options">
+        <select name="interactions" id="interactions">
+            <option value="">Seleccione una opción</option>
+            <option value="high-calculator">Combinacion en Interacciones mayores</option>
+            <option value="low-calculator">Combinacion en Interacciones moderadas</option>
+        </select>
+        <br>
+        <br>
+        <button id="user-button">Manual de usuario</button>
+    </section>
+    <section id="high-calculator" class="calculator hidden">
+        <section id="calculadora-med">
+        <h2>Combinaciones de interacciones mayores</h2>
+        <select name="medicamento0" id="medicamento-0-select-high">
+            <option value="ketoconazol">Ketoconazol</option>    
+        </select>
+        +
+        <select name="medicamento1" id="medicamento-1-select-high">
+            <option value="atorvastatina">Atorvastatina</option>
+            <option value="rivaroxaban">Rivaroxabán</option>
+        </select>
+        <button id="equals-high">=</button>
+        </section>
+    </section>
+    <section id="low-calculator" class="calculator hidden">
+        <section id="calculadora-med">
+            <h2>Combinaciones de interacciones moderadas</h2>
+
+            <select name="medicamento0" id="medicamento-0-select-low">
+                <option value="ketoconazol">Ketoconazol</option>
+                <option value="diltiazem">Diltiazem</option>
+                <option value="cisplatino">Cisplatino</option>
+                <option value="levotiroxina">Levotiroxina</option>             
+            </select>
+            +
+
+            <select name="medicamento1" id="medicamento-1-select-low">
+                <option value="default">Seleccione un medicamento</option>
+            </select>
+            <button id="equals-low">=</button>
+        </section>
+    </section>
+    <section id="table-result">
+        <table>
+            <tr>
+                <th>Interacción de Medicamentos</th>
+                <th>Riesgos</th>
+                <th>Precauciones</th>
+                <th>Síntomas de Advertencia</th>
+            </tr>
+            <tr>
+                <th id="interaction-data"></th>
+                <th id="risks-data"></th>
+                <th id="cautions-data"></th>
+                <th id="symptoms-data"></th>
+            </tr>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
